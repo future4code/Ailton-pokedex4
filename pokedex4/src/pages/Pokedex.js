@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { gotoHomePage } from "../routes/Coordinator"
 import { gotoDetalhesPage } from "../routes/Coordinator"
 import { useNavigate } from "react-router-dom"
 import "./Pokedex.css"
 import logo from "../img/logo.jpeg"
+import axios from "axios"
 
 
 export const Pokedex = () => {
@@ -19,6 +20,7 @@ export const Pokedex = () => {
       <div className="ContainerMain">
         <h1 className="Paragrafo">Meus Pokémons</h1>
       </div>
+      
     </div>
   )
 }
