@@ -1,0 +1,38 @@
+/* Cabeçalho  */
+
+.CountainerHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Logo {
+    width: 16em;
+    height: 5em;
+}
+
+.Botao {
+    background-color: #33A4F5;
+    color: white;
+    Width: 12em;
+    Height: 3em;
+    border: none;
+    border-radius: 0.4em;
+}
+.Botao:hover {
+    cursor: pointer;
+    opacity: 35%;
+}
+
+/* Main  */
+
+.ContainerMain{
+    display: flex;
+    background-color: gray;
+    margin-top: 1em;
+}
+
+.Paragrafo{
+    color: white;
+    margin-left: 1em;
+}
