@@ -5,21 +5,13 @@ import {gotoPokedexPage} from "../routes/Coordinator"
 import "./Home.css"
 import axios from "axios"
 import { CardPokedex } from "../components/CardPokedex"
-<<<<<<< HEAD
-// import useRequestData from "../hooks/useRequestData"
-=======
->>>>>>> ae7d1f78888c63810346beb499b849ba74661f09
 
 export const Home = () => {
     const navigate = useNavigate()  
     // const pokemons = useRequestData([], "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
     
   const [pokeData, setPokeData] = useState([])
-<<<<<<< HEAD
-  const [pokemonDetails, setPokemonDetails] = useState()
-=======
   const [pokemonDetails, setPokemonDetails] = useState([])
->>>>>>> ae7d1f78888c63810346beb499b849ba74661f09
 
   const Named = () =>{
     const url = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
@@ -32,21 +24,7 @@ export const Home = () => {
       console.log(erro.message)
     })
   }
-  
-  const getPokemonDetails = async (pokemons) => {
-    const pokemonsArrays = []
-      for(const pokemon of pokemons){
-          try{
-              const resp = await axios.get(pokemon.url)
-              pokemonsArrays.push(resp.data)
-            }
-            catch(error){
-              console.log(error.response)
-            }
-          }
-          setPokemonDetails(pokemonsArrays)
-  }
-
+console.log (pokeData)
   
   const getPokemonDetails = async (pokemons) => {
     const pokemonsArrays = []
@@ -69,11 +47,7 @@ export const Home = () => {
   
   const pokeMap = pokemonDetails.map((pokemon) =>{
     return (
-<<<<<<< HEAD
-      <CardPokedex key={pokemon.name} pokemon={pokemon}/>
-=======
       <CardPokedex key={pokemon.id} pokemon={pokemon}/>
->>>>>>> ae7d1f78888c63810346beb499b849ba74661f09
     )
   })
 
