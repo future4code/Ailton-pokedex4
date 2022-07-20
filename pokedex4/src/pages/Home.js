@@ -1,53 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../img/logo.jpeg"
 import {gotoPokedexPage} from "../routes/Coordinator"
 import "./Home.css"
-import axios from "axios"
-import { CardPokedex } from "../components/CardPokedex"
+import { CardHome } from "../components/CardHome"
+import { GlobalContext } from "../components/global/GlobalContext"
 
 export const Home = () => {
     const navigate = useNavigate()  
-    // const pokemons = useRequestData([], "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
-    
-  const [pokeData, setPokeData] = useState([])
-  const [pokemonDetails, setPokemonDetails] = useState([])
-
-  const Named = () =>{
-    const url = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
-    axios.get(url)
-    .then((response) =>{
-      setPokeData(response.data.results)
-      getPokemonDetails(response.data.results)
-    })
-    .catch((erro) =>{
-      console.log(erro.message)
-    })
-  }
-console.log (pokeData)
-  
-  const getPokemonDetails = async (pokemons) => {
-    const pokemonsArrays = []
-    for(const pokemon of pokemons){
-        try{
-            const res = await axios.get(pokemon.url)
-            pokemonsArrays.push(res.data)
-        }
-        catch(err){
-            console.log(err.response)
-        }
-    }
-    setPokemonDetails(pokemonsArrays)
-}
-
-  useEffect(() =>{
-    Named()
-  },[])
-
+    const  {states} = useContext(GlobalContext)
+    const {pokemonDetails} = states
   
   const pokeMap = pokemonDetails.map((pokemon) =>{
     return (
-      <CardPokedex key={pokemon.id} pokemon={pokemon}/>
+      <CardHome key={pokemon.id} pokemon={pokemon}/>
     )
   })
 
