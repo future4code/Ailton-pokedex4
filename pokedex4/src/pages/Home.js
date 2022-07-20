@@ -8,6 +8,7 @@ import { CardPokedex } from "../components/CardPokedex"
 
 export const Home = () => {
     const navigate = useNavigate()  
+    // const pokemons = useRequestData([], "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
     
   const [pokeData, setPokeData] = useState([])
   const [pokemonDetails, setPokemonDetails] = useState([])
@@ -23,7 +24,7 @@ export const Home = () => {
       console.log(erro.message)
     })
   }
-
+console.log (pokeData)
   
   const getPokemonDetails = async (pokemons) => {
     const pokemonsArrays = []
@@ -42,6 +43,7 @@ export const Home = () => {
   useEffect(() =>{
     Named()
   },[])
+
   
   const pokeMap = pokemonDetails.map((pokemon) =>{
     return (

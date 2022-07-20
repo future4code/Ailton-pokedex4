@@ -1,11 +1,40 @@
 .Container{
     display: flex;
     border: 1px solid black;
-    width: 20em;
-    height: 7em;
+    width: 25em;
+    height: 10em;
     border-radius: 0.8em;
     margin-left: 1em;
     margin-right: 0.8em;
     margin-bottom: 0.6em;
     padding-left: 0.6em;
+    margin-top: 3em;
+}
+
+.Status {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.Linha{
+    border: 1pt solid black;
+    width: 4em;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+.LinhaMap{
+    display: flex;
+}  
+
+.BotaoCardPokedex{
+    display: flex;
+    margin-top: 1.5em;
+}
+
+.ImagemBotaoCardPokedex{
+    margin-left: 2em;
 }
