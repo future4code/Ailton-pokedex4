@@ -1,4 +1,4 @@
-import React, { useContext }  from "react"
+import React, { useContext, useEffect, useState }  from "react"
 import { gotoHomePage } from "../routes/Coordinator"
 import { useNavigate } from "react-router-dom"
 import "./Detalhes.css"
@@ -6,6 +6,7 @@ import logo from "../img/logo.jpeg"
 import { GlobalContext } from "../components/global/GlobalContext"
 import { useParams } from "react-router-dom"
 import { CardDetalhes } from "../components/CardDetalhes"
+import axios from "axios"
 
 export const Detalhes = () => {
   const navigate = useNavigate()
@@ -13,10 +14,20 @@ export const Detalhes = () => {
   const {pokemonDetails, pokeData} = states
   const params = useParams()
 
+  const [detalhe, setDetalhe] = useState([])
 
+  useEffect(() =>{
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${params.id}/`)
+    .then((res) =>{
+      setDetalhe(res.data)
+    })
+    .catch((erro) =>{
+      console.log(erro)
+    })
+  }, [])
 
-  console.log(pokemonDetails)
-       
+  console.log(detalhe)
+ 
     return (
       <div>
       <div className="CountainerHeader">
@@ -28,8 +39,8 @@ export const Detalhes = () => {
         <h1 className="Paragrafo">Detalhes</h1>
       </div>
       <div>
-      
-      {/* <CardDetalhes /> */}
+      <p>{detalhe.name}</p>
+      {/* <CardDetalhes detalhe={detalhe}/> */}
       </div>
     </div>
     )
