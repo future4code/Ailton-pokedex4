@@ -32,7 +32,13 @@
     margin-top: 1em;
 }
 
+.ContainerMain2{
+    display: flex;
+    background-color: gray;
+    flex-wrap: wrap;
+}
+
 .Paragrafo{
     color: white;
-    margin-left: 1em;
+    background-color: gray;
 }

@@ -4,33 +4,50 @@ import logo from "../img/logo.jpeg"
 import {gotoPokedexPage} from "../routes/Coordinator"
 import "./Home.css"
 import axios from "axios"
+import { CardPokedex } from "../components/CardPokedex"
+// import useRequestData from "../hooks/useRequestData"
 
 export const Home = () => {
     const navigate = useNavigate()  
+    // const pokemons = useRequestData([], "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
     
   const [pokeData, setPokeData] = useState([])
-  const [pokeImg, setPokeImg] = useState()
+  const [pokemonDetails, setPokemonDetails] = useState()
 
   const Named = () =>{
-    const url = "https://pokeapi.co/api/v2/pokemon/"
+    const url = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
     axios.get(url)
     .then((response) =>{
       setPokeData(response.data.results)
-      setPokeImg(response.sprites.front_default)
-      console.log(response.data.results)
+      getPokemonDetails(response.data.results)
     })
     .catch((erro) =>{
-      console.log(erro)
+      console.log(erro.message)
     })
+  }
+  
+  const getPokemonDetails = async (pokemons) => {
+    const pokemonsArrays = []
+      for(const pokemon of pokemons){
+          try{
+              const resp = await axios.get(pokemon.url)
+              pokemonsArrays.push(resp.data)
+            }
+            catch(error){
+              console.log(error.response)
+            }
+          }
+          setPokemonDetails(pokemonsArrays)
   }
 
   useEffect(() =>{
     Named()
   },[])
+
   
-  const pokeMap = pokeData.map((pokemon) =>{
+  const pokeMap = pokemonDetails.map((pokemon) =>{
     return (
-      <p key={pokemon.name}> {pokemon.name}  </p>
+      <CardPokedex key={pokemon.name} pokemon={pokemon}/>
     )
   })
 
@@ -44,8 +61,9 @@ export const Home = () => {
             </div>
             <div className="ContainerMain">
             <h1 className="Paragrafo">Todos os Pokémons</h1>
-            {pokeMap} 
-            {/* <img src={pokeImg} /> */}
+            </div>
+            <div className="ContainerMain2">
+            {pokeMap}
             </div>
         </div>
     )
