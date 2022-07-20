@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { gotoHomePage } from "../routes/Coordinator"
 import { gotoDetalhesPage } from "../routes/Coordinator"
 import { useNavigate } from "react-router-dom"
 import "./Pokedex.css"
 import logo from "../img/logo.jpeg"
 import axios from "axios"
+import { GlobalContext } from "../components/global/GlobalContext"
 
 
 export const Pokedex = () => {

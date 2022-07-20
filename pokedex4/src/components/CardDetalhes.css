@@ -30,11 +30,11 @@
     display: flex;
 }  
 
-.BotaoCardPokedex{
+.BotaoCardDetalhes{
     display: flex;
     margin-top: 1.5em;
 }
 
-.ImagemBotaoCardPokedex{
+.ImagemBotaoCardDetalhes{
     margin-left: 2em;
 }

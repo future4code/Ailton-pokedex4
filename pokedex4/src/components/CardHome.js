@@ -1,11 +1,11 @@
 import React from "react"
-import "./CardDetalhes.css"
+import "./CardHome.css"
 import { useNavigate } from "react-router-dom"
 import {gotoPokedexPage} from "../routes/Coordinator"
 import {gotoDetalhesPage} from "../routes/Coordinator"
 
 
-export const CardDetalhes = (props) => {
+export const CardHome = (props) => {
     const pokemon = props.pokemon
     const navigate = useNavigate()
 
@@ -32,8 +32,8 @@ export const CardDetalhes = (props) => {
         if(pokemon?.types){
             return pokemon.types.map((type) => {
                 return(
-                    <div>
-                        <p className="Linha" key={type.type.name}>{type.type.name}</p>
+                    <div key={type.type.name}>
+                        <p className="Linha">{type.type.name}</p>
                     </div>
                 )
             })
@@ -48,13 +48,13 @@ export const CardDetalhes = (props) => {
                     <span>#{pokemon.id}</span>
                     <span> {pokemon.name} </span>
                     <span className="LinhaMap">{Types()}</span>
-                    <div className="BotaoCardDetalhes">
-                        <button onClick={() => gotoDetalhesPage(navigate)}>Detalhes</button>
+                    <div className="BotaoCardHome">
+                        <button onClick={() => gotoDetalhesPage(navigate, pokemon.id)}>Detalhes</button>
                         <button onClick={() => gotoPokedexPage(navigate)}>Capturar!</button>
                     </div>
                 </div>
                 
-                     <img className="ImagemBotaoCardDetalhes" src={pokemon.sprites.other.home.front_default} />
+                     <img className="ImagemBotaoCardHome" src={pokemon.sprites.other.home.front_default} />
                 
             </div>
     )
