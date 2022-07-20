@@ -18,6 +18,7 @@ const GlobalState = (props) => {
         .then((response) =>{
           setPokeData(response.data.results)
           getPokemonDetails(response.data.results)
+          
         })
         .catch((erro) =>{
           console.log(erro.message)
@@ -43,13 +44,13 @@ const GlobalState = (props) => {
 
     const states = { pokeData , pokemonDetails }
     const setters = { setPokeData , setPokemonDetails }
-
+    const requests = {Named, getPokemonDetails}
     
     
     const Provider = GlobalContext.Provider
 
     return(
-        <Provider value={{states, setters}}>
+        <Provider value={{states, setters, requests}}>
             {props.children}
         </Provider>
     )

@@ -6,7 +6,7 @@ import {gotoDetalhesPage} from "../routes/Coordinator"
 
 
 export const CardDetalhes = (props) => {
-    const pokemon = props.pokemon
+    const pokemon = props.detalhe
     const navigate = useNavigate()
 
     const Color = (type) => {
@@ -32,8 +32,8 @@ export const CardDetalhes = (props) => {
         if(pokemon?.types){
             return pokemon.types.map((type) => {
                 return(
-                    <div>
-                        <p className="Linha" key={type.type.name}>{type.type.name}</p>
+                    <div key={type.type.name}>
+                        <p className="Linha" >{type.type.name}</p>
                     </div>
                 )
             })
