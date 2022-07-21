@@ -1,8 +1,6 @@
 import React from "react"
 import "./CardDetalhes.css"
 import { useNavigate } from "react-router-dom"
-import {gotoPokedexPage} from "../routes/Coordinator"
-import {gotoDetalhesPage} from "../routes/Coordinator"
 
 
 export const CardDetalhes = (props) => {
@@ -10,8 +8,8 @@ export const CardDetalhes = (props) => {
     const navigate = useNavigate()
 
     const Color = (type) => {
-    
-        switch( type ) {
+
+        switch (type) {
             case "grass":
                 return "#729F92"
             case "water":
@@ -21,7 +19,7 @@ export const CardDetalhes = (props) => {
             case "normal":
                 return "#BF9762"
             case "bug":
-                return "#76A866"    
+                return "#76A866"
             default:
                 return "white";
         }
@@ -29,9 +27,9 @@ export const CardDetalhes = (props) => {
 
     const Types = () => {
         //Fazendo um map para pegar o tipo do pokemon
-        if(pokemon?.types){
+        if (pokemon?.types) {
             return pokemon.types.map((type) => {
-                return(
+                return (
                     <div key={type.type.name}>
                         <p className="Linha" >{type.type.name}</p>
                     </div>
@@ -40,22 +38,54 @@ export const CardDetalhes = (props) => {
         }
     }
 
+    const array = [pokemon.stats[0].base_stat, pokemon.stats[1].base_stat, pokemon.stats[2].base_stat,
+    pokemon.stats[3].base_stat, pokemon.stats[4].base_stat, pokemon.stats[5].base_stat]
+    const soma = array.reduce(function (soma, i) {
+        return soma + i;
+    })
+
+
     return (
-            <div key={pokemon.id}
-                 style={{backgroundColor: Color(pokemon.types[0].type.name), color:'white'}}
-                 className="Container">
-                <div   className="Status">
-                    <span>#{pokemon.id}</span>
-                    <span> {pokemon.name} </span>
-                    <span className="LinhaMap">{Types()}</span>
-                    <div className="BotaoCardDetalhes">
-                        <button onClick={() => gotoDetalhesPage(navigate)}>Detalhes</button>
-                        <button onClick={() => gotoPokedexPage(navigate)}>Capturar!</button>
-                    </div>
+        <div key={pokemon.id}
+            style={{ backgroundColor: Color(pokemon.types[0].type.name), color: 'white' }}
+            className="ContainerCardDetalhes">
+                
+                <div className="ImagemDetalhes1">
+                    <img className="ImagemDetalhes" src={pokemon.sprites.other.dream_world.front_default} />
+                </div>
+
+            <div >
+                <img className="ImagemPixelCardDetalhe" src={pokemon.sprites.front_default} />
+                <img className="ImagemPixelCardDetalhe" src={pokemon.sprites.back_default} />
+            </div>
+            <div className="BaseStatusDetalhes">
+                <h3 className="ColorBlackDetalhes">Base Status</h3>
+                <div className="SubMenuBaseStatus">
+                    <span className="LinhaSubMenuBaseStatus">HP = {pokemon.stats[0].base_stat}</span>
+                    <span className="LinhaSubMenuBaseStatus">Attack = {pokemon.stats[1].base_stat}</span>
+                    <span className="LinhaSubMenuBaseStatus">Defense = {pokemon.stats[2].base_stat}</span>
+                    <span className="LinhaSubMenuBaseStatus">Sp. Atk = {pokemon.stats[3].base_stat}</span>
+                    <span className="LinhaSubMenuBaseStatus">Sp. Def = {pokemon.stats[4].base_stat}</span>
+                    <span className="LinhaSubMenuBaseStatus">Speed = {pokemon.stats[5].base_stat}</span>
+                    <span className="LinhaSubMenuBaseStatus">Total = {soma}</span>
+                </div>
+            </div>
+               
+            <div className="StatusDetalhe">
+                <span>#{pokemon.id}</span>
+                <span> {pokemon.name} </span>
+                <span className="LinhaMap">{Types()}</span>
+                <div className="MovesDetalhesContainer">
+                    <h3 className="ColorBlackDetalhes">Moves:</h3>
+                    <span className="LinhaMoves">{pokemon.moves[0].move.name}</span>
+                    <span className="LinhaMoves">{pokemon.moves[1].move.name}</span>
+                    <span className="LinhaMoves">{pokemon.moves[2].move.name}</span>
+                    <span className="LinhaMoves">{pokemon.moves[3].move.name}</span>
+                    <span className="LinhaMoves">{pokemon.moves[4].move.name}</span>
                 </div>
                 
-                     <img className="ImagemBotaoCardDetalhes" src={pokemon.sprites.other.home.front_default} />
-                
             </div>
+        </div>
+
     )
 }
