@@ -8,16 +8,15 @@ import { GlobalContext } from "../components/global/GlobalContext"
 
 export const Home = () => {
     const navigate = useNavigate()  
-    const  {states} = useContext(GlobalContext)
+    const  {states, requests} = useContext(GlobalContext)
     const {pokemonDetails, pokeData} = states
   
   const pokeMap = pokemonDetails.map((pokemon) =>{
     return (
-      <CardHome key={pokemon.id} pokemon={pokemon} />
+      <CardHome key={pokemon.id} pokemon={pokemon}/>
     )
   })
 
-  console.log(pokeData)
        
     return (
         <div>
