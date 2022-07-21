@@ -1,20 +1,38 @@
-.Container{
+/* @media screen (max-width:480px){
+    .ContainerCardDetalhes{
+        display: flex;
+        border: 1px solid black;
+        width: 60em;
+        height: 23em;
+        border-radius: 0.8em;
+        margin-left: 1em;
+        margin-right: 0.8em;
+        margin-bottom: 4em;
+        padding-left: 0.6em;
+        margin-top: 3em;
+        flex-wrap: wrap;
+    }
+} */
+
+.ContainerCardDetalhes{
     display: flex;
     border: 1px solid black;
-    width: 25em;
-    height: 10em;
+    width: 60em;
+    height: 23em;
     border-radius: 0.8em;
     margin-left: 1em;
     margin-right: 0.8em;
-    margin-bottom: 0.6em;
+    margin-bottom: 4em;
     padding-left: 0.6em;
     margin-top: 3em;
+    flex-wrap: wrap;
 }
 
-.Status {
+.StatusDetalhe {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
+    margin-left: 1em;
 }
 
 .Linha{
@@ -37,4 +55,83 @@
 
 .ImagemBotaoCardDetalhes{
     margin-left: 2em;
+}
+
+.ImagemPixelCardDetalhe{
+    display: flex;
+    border: 1px solid black;
+    width: 10em;
+    height: 10em;
+    border-radius: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    margin-top: 1em;
+    background-color: white;
+}
+
+.BaseStatusDetalhes{
+    display: flex;
+    border: 1px solid black;
+    width: 13em;
+    height: 21em;
+    border-radius: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    margin-top: 1em;
+    background-color: white;
+    flex-direction: column;
+}
+
+.ColorBlackDetalhes{
+    color: black;
+    display: flex;
+}
+
+.SubMenuBaseStatus{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.LinhaSubMenuBaseStatus{
+    margin-top: 1em;
+    display: flex;
+  
+}
+
+.MovesDetalhesContainer{
+    display: flex;
+    border: 1px solid black;
+    width: 11em;
+    height: 15.5em;
+    border-radius: 0.8em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    background-color: white;
+    flex-direction: column;
+}
+
+.LinhaMoves{
+    margin-top: 1em;
+    display: flex;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0.8em;
+    background-color: gray;
+    padding-left: 0.6em;
+}
+
+.ImagemDetalhes {
+    object-fit: cover;
+}
+
+.ImagemDetalhes1 {
+    object-fit: cover;
+    width: 16em;
 }
