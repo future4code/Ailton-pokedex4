@@ -7,6 +7,7 @@ const GlobalState = (props) => {
     
     const [pokeData, setPokeData] = useState([])
     const [pokemonDetails, setPokemonDetails] = useState([])
+    
 
     useEffect(() =>{
         Named()

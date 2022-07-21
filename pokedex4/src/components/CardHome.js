@@ -1,8 +1,11 @@
-import React from "react"
+import React, {useContext} from "react"
 import "./CardHome.css"
 import { useNavigate } from "react-router-dom"
 import {gotoPokedexPage} from "../routes/Coordinator"
 import {gotoDetalhesPage} from "../routes/Coordinator"
+import {useState} from 'react'
+import { useParams } from "react-router-dom"
+import { GlobalContext } from "../components/global/GlobalContext"
 
 
 export const CardHome = (props) => {
@@ -26,6 +29,28 @@ export const CardHome = (props) => {
                 return "white";
         }
     }
+    const [pokemonCapturado, setPokemonCapturado] = useState([])
+    
+    const { states } = useContext(GlobalContext)
+    const { pokemonDetails, pokeData } = states
+    const params = useParams()    
+
+    const addToCarrinho = (id) =>{
+        const array = []
+        const juntaDados = pokemonDetails[id-1]
+        
+        if (pokemonDetails.lenght === 20) {
+            setPokemonCapturado(array)
+        } else {
+            array.push(juntaDados) 
+        }
+        
+        console.log(array)
+    }
+    console.log(pokemonCapturado)
+    
+   
+    
 
     const Types = () => {
         //Fazendo um map para pegar o tipo do pokemon
@@ -50,7 +75,7 @@ export const CardHome = (props) => {
                     <span className="LinhaMap">{Types()}</span>
                     <div className="BotaoCardHome">
                         <button onClick={() => gotoDetalhesPage(navigate, pokemon.id)}>Detalhes</button>
-                        <button onClick={() => gotoPokedexPage(navigate)}>Capturar!</button>
+                        <button onClick={() => addToCarrinho(pokemon.id)}>Capturar!</button>
                     </div>
                 </div>
                 
