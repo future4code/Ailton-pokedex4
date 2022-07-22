@@ -11,32 +11,34 @@ import axios from "axios"
   export const Detalhes = () => {
 
   const navigate = useNavigate()
-  const { states, requests } = useContext(GlobalContext)
+  const { states, requests, setters } = useContext(GlobalContext)
   const { pokemonDetails, pokeData, pokemonCapturado } = states
+  const {setPokemonCapturado} = setters
   const { addToCarrinho, removeToCarrinho } = requests
   const [detalhe, setDetalhe] = useState([])
-  // const [verifica, setVerifica] = useState (false)
+  const [verifica, setVerifica] = useState (false)
    
   const params = useParams()
   const juntaDados = pokemonDetails[params.id-1]
 
   console.log(juntaDados)
 
-  // useEffect (() => {
-  //   verificacao()
-  // }, [])
-  // const verificacao = () =>{
-  //      const pokemons = juntaDados
-  //   setVerifica(state =>{
-  //     const pokemonExist = (state.filter(p => pokemons.id == p.id).length > 0);
-  //     if (!pokemonExist){
-  //       false
-  //     } else{
-  //       true
-  //     }
-  //     return state
-  //   })
-  // }
+  useEffect (() => {
+    verificacao()
+  }, [])
+
+  const verificacao = (event) =>{
+      const pokemons = juntaDados
+      setPokemonCapturado(state =>{
+      const pokemonExist = (state.filter(p => pokemons.id == p.id).length > 0);
+      if (!pokemonExist){
+        setVerifica(false)
+      } else{
+        setVerifica(true)
+      }
+      return state
+    })
+  }
   
 
   return (
@@ -44,15 +46,12 @@ import axios from "axios"
       <div className="CountainerHeader">
         <button onClick={() => gotoHomePage(navigate)} className="Botao">Todos os Pokémons</button>
         <img src={logo} className="Logo" />
-        {/* <div>
-          {juntaDados == verifica ?
-           <button value={true}>Excluir</button>
+        <div>
+          {verifica ?
+           <button className="Botao" value={true} onClick={() => removeToCarrinho(params.id)}>Excluir</button>
            
-          : <button value={false}>Capturar</button>}
-        </div> */}
-        <button onClick={pokemonCapturado ? removeToCarrinho : addToCarrinho }>
-          {pokemonCapturado ? "Excluir" : "Capturar"}
-        </button>
+          : <button className="Botao" value={false} onClick={() => addToCarrinho(params.id)}>Capturar</button>}
+        </div>
       </div>
       <div className="ContainerMain">
         <h1 className="Paragrafo">Detalhes</h1>
