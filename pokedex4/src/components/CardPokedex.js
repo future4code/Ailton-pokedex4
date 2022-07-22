@@ -1,10 +1,10 @@
 import React, {useContext, useEffect} from "react"
-import "./CardHome.css"
+import "./CardPokedex.css"
 import { useNavigate } from "react-router-dom"
 import {gotoDetalhesPage} from "../routes/Coordinator"
 import { GlobalContext } from "../components/global/GlobalContext"
 
-export const CardHome = (props) => {
+export const CardPokedex = (props) => {
     const pokemon = props.pokemon
     const navigate = useNavigate()
 
@@ -26,7 +26,7 @@ export const CardHome = (props) => {
         }
     }
     const { requests } = useContext(GlobalContext)
-    const { addToCarrinho } = requests
+    const { removeToCarrinho } = requests
     
     const Types = () => {
         //Fazendo um map para pegar o tipo do pokemon
@@ -51,7 +51,7 @@ export const CardHome = (props) => {
                     <span className="LinhaMap">{Types()}</span>
                     <div className="BotaoCardHome">
                         <button onClick={() => gotoDetalhesPage(navigate, pokemon.id)}>Detalhes</button>
-                        <button onClick={() => addToCarrinho(pokemon.id)}>Capturar!</button>
+                        <button onClick={() => removeToCarrinho(pokemon.id)}>Remover</button>
                     </div>
                 </div>
                 

@@ -45,15 +45,23 @@ const GlobalState = (props) => {
     const novoArray = []
 
     const addToCarrinho = (id) =>{
-      const juntaDados = pokemonDetails[id-1] 
-            novoArray.push(juntaDados)
-            setPokemonCapturado([...novoArray])        
-            console.log(novoArray)
+          
+      const juntaDados = pokemonDetails[id-1]
+      setPokemonCapturado(novoArray => [...novoArray, juntaDados])
+}
+      const removeToCarrinho =(pokemonId) =>{
+        const novaLista = pokemonCapturado.filter((pokemon) =>{
+          return pokemonId !== pokemon.id
+        })
+        setPokemonCapturado (novaLista)
     }
+    
+
+console.log(pokemonCapturado)
 
     const states = { pokeData , pokemonDetails, pokemonCapturado}
     const setters = { setPokeData , setPokemonDetails, setPokemonCapturado }
-    const requests = {Named, getPokemonDetails, addToCarrinho}
+    const requests = {Named, getPokemonDetails, addToCarrinho, removeToCarrinho}
     
     
     const Provider = GlobalContext.Provider
