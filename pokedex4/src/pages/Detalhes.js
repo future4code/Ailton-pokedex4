@@ -11,21 +11,48 @@ import axios from "axios"
   export const Detalhes = () => {
 
   const navigate = useNavigate()
-  const { states } = useContext(GlobalContext)
-  const { pokemonDetails, pokeData } = states
-  const params = useParams()
+  const { states, requests } = useContext(GlobalContext)
+  const { pokemonDetails, pokeData, pokemonCapturado } = states
+  const { addToCarrinho, removeToCarrinho } = requests
   const [detalhe, setDetalhe] = useState([])
-  
+  // const [verifica, setVerifica] = useState (false)
+   
+  const params = useParams()
   const juntaDados = pokemonDetails[params.id-1]
 
-  console.log(detalhe)
+  console.log(juntaDados)
+
+  // useEffect (() => {
+  //   verificacao()
+  // }, [])
+  // const verificacao = () =>{
+  //      const pokemons = juntaDados
+  //   setVerifica(state =>{
+  //     const pokemonExist = (state.filter(p => pokemons.id == p.id).length > 0);
+  //     if (!pokemonExist){
+  //       false
+  //     } else{
+  //       true
+  //     }
+  //     return state
+  //   })
+  // }
+  
 
   return (
     <div>
       <div className="CountainerHeader">
         <button onClick={() => gotoHomePage(navigate)} className="Botao">Todos os Pokémons</button>
         <img src={logo} className="Logo" />
-        <button>Excluir</button>
+        {/* <div>
+          {juntaDados == verifica ?
+           <button value={true}>Excluir</button>
+           
+          : <button value={false}>Capturar</button>}
+        </div> */}
+        <button onClick={pokemonCapturado ? removeToCarrinho : addToCarrinho }>
+          {pokemonCapturado ? "Excluir" : "Capturar"}
+        </button>
       </div>
       <div className="ContainerMain">
         <h1 className="Paragrafo">Detalhes</h1>
