@@ -7,7 +7,7 @@ const GlobalState = (props) => {
     
     const [pokeData, setPokeData] = useState([])
     const [pokemonDetails, setPokemonDetails] = useState([])
-    
+    const [pokemonCapturado, setPokemonCapturado] = useState([])
 
     useEffect(() =>{
         Named()
@@ -40,19 +40,29 @@ const GlobalState = (props) => {
         }
         setPokemonDetails(pokemonsArrays)
     }
-    
-    const [pokemonCapturado, setPokemonCapturado] = useState([])
-    const novoArray = []
 
     const addToCarrinho = (id) =>{
-          
-      const juntaDados = pokemonDetails[id-1]
-      setPokemonCapturado(novoArray => [...novoArray, juntaDados])
+      const pokemons = pokemonDetails[id-1]
+      
+      setPokemonCapturado(state =>{
+        const pokemonExist = (state.filter(p => pokemons.id == p.id).length > 0);
+        if (!pokemonExist){
+          state = [...state, pokemons]
+          alert(`${pokemons.name} Capturado com sucesso!`)
+        } else{
+          alert("Este Pokemon já está Capturado, Verifique na sua Pokedex!")
+        }
+        return state
+      })
+      // const juntaDados = pokemonDetails[id-1]
+      // setPokemonCapturado(novoArray => [...novoArray, juntaDados])
 }
       const removeToCarrinho =(pokemonId) =>{
+        const pokemons = pokemonDetails[pokemonId-1]
         const novaLista = pokemonCapturado.filter((pokemon) =>{
           return pokemonId !== pokemon.id
         })
+        alert(`${pokemons.name} foi Libertado!`)
         setPokemonCapturado (novaLista)
     }
     
