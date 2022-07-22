@@ -9,3 +9,7 @@ export const gotoPokedexPage = (navigate) => {
 export const gotoDetalhesPage = (navigate, pokemonId) => {
     navigate(`/Detalhes/${pokemonId}`)
 }
+
+export const goToVoltar = (navigate) => {
+    navigate(-1)
+}
