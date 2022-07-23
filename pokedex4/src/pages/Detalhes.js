@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom"
 import { CardDetalhes } from "../components/CardDetalhes"
 import axios from "axios"
 
+
   export const Detalhes = () => {
 
   const navigate = useNavigate()

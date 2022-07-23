@@ -2,6 +2,24 @@ import axios from 'axios'
 import React from 'react'
 import {useEffect, useState } from 'react'
 import { GlobalContext } from "./GlobalContext"
+import bug from "../../assets/icons/bug.svg"
+import dark from "../../assets/icons/dark.svg"
+import dragon from "../../assets/icons/dragon.svg"
+import electric from "../../assets/icons/electric.svg"
+import fairy from "../../assets/icons/fairy.svg"
+import fighting from "../../assets/icons/fighting.svg"
+import fire from "../../assets/icons/fire.svg"
+import flying from "../../assets/icons/flying.svg"
+import ghost from "../../assets/icons/ghost.svg"
+import grass from "../../assets/icons/grass.svg"
+import ground from "../../assets/icons/ground.svg"
+import ice from "../../assets/icons/ice.svg"
+import normal from "../../assets/icons/normal.svg"
+import poison from "../../assets/icons/poison.svg"
+import psychic from "../../assets/icons/psychic.svg"
+import rock from "../../assets/icons/rock.svg"
+import steel from "../../assets/icons/steel.svg"
+import water from "../../assets/icons/water.svg"
 
 const GlobalState = (props) => {
     
@@ -132,11 +150,54 @@ const GlobalState = (props) => {
           }
       }
     
+      const EscolheTipo = (type) => {
+      
+        switch( type ) {
+            case "poison":
+                return poison
+            case "grass":
+                return grass
+            case "fire":
+                return fire
+            case "flying":
+                return flying
+            case "water":
+                return water
+            case "bug":
+                return bug
+            case "normal":
+                return normal
+            case "dark":
+                return dark
+            case "dragon":
+                return dragon  
+            case "electric":
+                return electric    
+            case "fairy":
+                return fairy   
+            case "fighting":
+                return fighting   
+            case "ghost":
+                return ghost  
+            case "ground":
+                return ground   
+            case "ice":
+                return ice  
+            case "psychic":
+                return psychic   
+            case "rock":
+                return rock   
+            case "steel":
+                return steel    
+            default:
+                return "white";
+        }
+    }
 
 
     const states = { pokeData , pokemonDetails, pokemonCapturado}
     const setters = { setPokeData , setPokemonDetails, setPokemonCapturado }
-    const requests = {Named, getPokemonDetails, addToCarrinho, removeToCarrinho , Color , ColorTypesSmall}
+    const requests = {Named, getPokemonDetails, addToCarrinho, removeToCarrinho , Color , ColorTypesSmall, EscolheTipo}
     
     
     const Provider = GlobalContext.Provider
