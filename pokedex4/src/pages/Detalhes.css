@@ -18,8 +18,28 @@
     Height: 3em;
     border: none;
     border-radius: 0.4em;
+    font-family: "Roboto";
+
 }
+
+.BotaoExcluir {
+    background-color: #FF6262;
+    
+    color: white;
+    Width: 12em;
+    Height: 3em;
+    border: none;
+    border-radius: 0.4em;
+    font-family: "Roboto";
+
+}
+
 .Botao:hover {
+    cursor: pointer;
+    opacity: 35%;
+}
+
+.BotaoExcluir:hover {
     cursor: pointer;
     opacity: 35%;
 }
@@ -30,9 +50,73 @@
     display: flex;
     background-color: gray;
     margin-top: 1em;
+    font-family: "Roboto";
+
 }
 
 .Paragrafo{
     color: white;
     margin-left: 1em;
+    font-family: "Roboto";
+
+}
+
+/* Tentando inserir responsividade */
+
+@media screen and (max-width:480px) {
+
+/* Cabeçalho  */
+
+.CountainerHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Logo {
+    width: 8em;
+    height: 5em;
+}
+
+.Botao {
+    background-color: #33A4F5;
+    color: white;
+    Width: 6em;
+    Height: 3em;
+    border: none;
+    border-radius: 0.4em;
+}
+
+.BotaoExcluir {
+    background-color: #FF6262;
+    color: white;
+    Width: 6em;
+    Height: 3em;
+    border: none;
+    border-radius: 0.4em;
+}
+
+.Botao:hover {
+    cursor: pointer;
+    opacity: 35%;
+}
+
+/* Main  */
+
+.ContainerMain{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    background-color: gray;
+    margin-top: 1em;
+}
+
+.Paragrafo{
+    color: white;
+    margin-left: 1em;
+}
+
+
 }

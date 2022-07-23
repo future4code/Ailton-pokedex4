@@ -1,6 +1,6 @@
 .Container{
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 25em;
     height: 10em;
     border-radius: 0.8em;
@@ -9,6 +9,7 @@
     margin-bottom: 0.6em;
     padding-left: 0.6em;
     margin-top: 3em;
+    font-family: Roboto;
 }
 
 .Status {
@@ -24,6 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Roboto;
 }   
 
 .LinhaMap{
@@ -37,4 +39,35 @@
 
 .ImagemBotaoCardHome{
     margin-left: 2em;
+}
+
+.BotaoDetalhes {
+    height: 1.6em;
+    width: 6em;
+    color: #FFFFFF;
+    border-radius: 2em;
+    margin-bottom: 0.6em;
+    text-decoration: underline;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-family: Roboto;
+    font-size: 1em;
+    /* font-weight: bold; */
+}
+.BotaoCardExcluir {
+    height: 1.6em;
+    width: 6em;
+    border: none;
+    background-color: #FF6262;
+    color: #ffffff;
+    border-radius: 2em;
+    margin-bottom: 0.6em;
+    cursor:pointer;
+    font-family: Roboto;
+    font-size: 1em;
+    /* font-weight: bold; */
 }
