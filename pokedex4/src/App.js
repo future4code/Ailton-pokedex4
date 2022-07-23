@@ -1,4 +1,5 @@
 import './App.css';
+import "@fontsource/roboto";
 import { Router } from './routes/Router';
 import GlobalState from './components/global/GlobalState';
 

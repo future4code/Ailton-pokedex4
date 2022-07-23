@@ -39,8 +39,7 @@ import axios from "axios"
       return state
     })
   }
-  
-
+ 
   return (
     <div>
       <div className="CountainerHeader">
@@ -48,7 +47,7 @@ import axios from "axios"
         <img src={logo} className="Logo" />
         <div>
           {verifica ?
-           <button className="Botao" value={true} onClick={() => removeToCarrinho(params.id)}>Excluir</button>
+           <button className="BotaoExcluir" value={true} onClick={() => removeToCarrinho(params.id)}>Excluir</button>
            
           : <button className="Botao" value={false} onClick={() => addToCarrinho(params.id)}>Capturar</button>}
         </div>

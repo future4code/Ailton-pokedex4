@@ -8,33 +8,18 @@ export const CardPokedex = (props) => {
     const pokemon = props.pokemon
     const navigate = useNavigate()
 
-    const Color = (type) => {
-    
-        switch( type ) {
-            case "grass":
-                return "#729F92"
-            case "water":
-                return "#71C3FF"
-            case "fire":
-                return "#EAAB7D"
-            case "normal":
-                return "#BF9762"
-            case "bug":
-                return "#76A866"    
-            default:
-                return "white";
-        }
-    }
     const { requests } = useContext(GlobalContext)
     const { removeToCarrinho } = requests
+    const { Color } = requests
+    const { ColorTypesSmall } = requests
     
     const Types = () => {
         //Fazendo um map para pegar o tipo do pokemon
         if(pokemon?.types){
-            return pokemon.types.map((type) => {
+            return pokemon.types.map((type,id) => {
                 return(
                     <div key={type.type.name}>
-                        <p className="Linha">{type.type.name}</p>
+                        <p style={{backgroundColor: ColorTypesSmall(pokemon.types[id].type.name), color:'white'}} className="Linha">{type.type.name}</p>
                     </div>
                 )
             })
@@ -50,9 +35,10 @@ export const CardPokedex = (props) => {
                     <span> {pokemon.name} </span>
                     <span className="LinhaMap">{Types()}</span>
                     <div className="BotaoCardHome">
-                        <button onClick={() => gotoDetalhesPage(navigate, pokemon.id)}>Detalhes</button>
-                        <button onClick={() => removeToCarrinho(pokemon.id)}>Remover</button>
+                        <button className="BotaoDetalhes" onClick={() => gotoDetalhesPage(navigate, pokemon.id)}>Detalhes</button>
+                        <button className="BotaoCardExcluir" onClick={() => removeToCarrinho(pokemon.id)}>Excluir</button>
                     </div>
+                    
                 </div>
                 
                      <img className="ImagemBotaoCardHome" src={pokemon.sprites.other.home.front_default} />

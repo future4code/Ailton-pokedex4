@@ -1,37 +1,26 @@
 import React from "react"
 import "./CardDetalhes.css"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { GlobalContext } from "../components/global/GlobalContext"
 
 
 export const CardDetalhes = (props) => {
     const pokemon = props.detalhe
     const navigate = useNavigate()
+    
+    const { requests } = useContext(GlobalContext)
 
-    const Color = (type) => {
-
-        switch (type) {
-            case "grass":
-                return "#729F92"
-            case "water":
-                return "#71C3FF"
-            case "fire":
-                return "#EAAB7D"
-            case "normal":
-                return "#BF9762"
-            case "bug":
-                return "#76A866"
-            default:
-                return "white";
-        }
-    }
+    const { Color } = requests
+    const { ColorTypesSmall } = requests
 
     const Types = () => {
         //Fazendo um map para pegar o tipo do pokemon
-        if (pokemon?.types) {
-            return pokemon.types.map((type) => {
-                return (
+        if(pokemon?.types){
+            return pokemon.types.map((type,id) => {
+                return(
                     <div key={type.type.name}>
-                        <p className="Linha" >{type.type.name}</p>
+                        <p style={{backgroundColor: ColorTypesSmall(pokemon.types[id].type.name), color:'white'}} className="Linha">{type.type.name}</p>
                     </div>
                 )
             })
