@@ -30,7 +30,9 @@ export const CardHome = (props) => {
     const { requests } = useContext(GlobalContext)
     const { addToCarrinho } = requests
     const { Color } = requests
-    const { ColorTypesSmall } = requests
+    const { ColorTypesSmall, EscolheTipo } = requests
+
+    
     
     const Types = () => {
         //Fazendo um map para pegar o tipo do pokemon
@@ -39,7 +41,7 @@ export const CardHome = (props) => {
                 return(
                     <div key={type.type.name}>
                         <p style={{backgroundColor: ColorTypesSmall(pokemon.types[id].type.name), color:'white'}}
-                        className="Linha"><img src={`../assets/icons/${pokemon.types[id].type.name}.svg`} width="16em" height="20em"/>{type.type.name}</p>
+                        className="Linha"><img src={EscolheTipo(type.type.name)} width="16em" height="20em"/>{type.type.name}</p>
                     </div>
                 )
             })
