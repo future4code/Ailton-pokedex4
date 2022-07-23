@@ -5,11 +5,14 @@ import {gotoPokedexPage} from "../routes/Coordinator"
 import "./Home.css"
 import { CardHome } from "../components/CardHome"
 import { GlobalContext } from "../components/global/GlobalContext"
+import ReactPaginate from "react-paginate"
+import Paginacao from "../hooks/Paginacao"
 
 export const Home = () => {
     const navigate = useNavigate()  
     const  {states, requests} = useContext(GlobalContext)
-    const {pokemonDetails, pokeData} = states
+    const {nextPageUrl, prevPageUrl, pokemonDetails, pokeData} = states
+    const {gotoNextPage, gotoPrevPage} = requests
   
   const pokeMap = pokemonDetails.map((pokemon) =>{
     return (
@@ -30,6 +33,12 @@ export const Home = () => {
             </div>
             <div className="ContainerMain2">
             {pokeMap}
+            </div>
+            <div className="ContainerMain3">
+            <Paginacao 
+              gotoNextPage={nextPageUrl ? gotoNextPage : null}
+              gotoPrevPage={prevPageUrl ? gotoPrevPage : null}  
+            />
             </div>
         </div>
     )

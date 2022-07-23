@@ -27,21 +27,32 @@ const GlobalState = (props) => {
     const [pokemonDetails, setPokemonDetails] = useState([])
     const [pokemonCapturado, setPokemonCapturado] = useState([])
     
-    useEffect(() =>{
-        Named()
-      },[])
 
-    const Named = () =>{
-        const url = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
-        axios.get(url)
+    const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon");
+    const [nextPageUrl, setNextPageUrl] = useState();
+    const [prevPageUrl, setPrevPageUrl] = useState();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() =>{
+        axios.get(currentPageUrl)
         .then((response) =>{
-          setPokeData(response.data.results)
-          getPokemonDetails(response.data.results)
-          
+            setPokeData(response.data.results)
+            getPokemonDetails(response.data.results)
+            setNextPageUrl(response.data.next);
+            setPrevPageUrl(response.data.previous);
         })
         .catch((erro) =>{
           console.log(erro.message)
         })
+        
+      }, [currentPageUrl]);
+
+      const gotoNextPage = () =>{
+        setCurrentPageUrl(nextPageUrl)
+      }
+
+      const gotoPrevPage = () =>{
+        setCurrentPageUrl(prevPageUrl)
       }
     
       const getPokemonDetails = async (pokemons) => {
@@ -58,6 +69,8 @@ const GlobalState = (props) => {
         }
         setPokemonDetails(pokemonsArrays)
       }
+
+      console.log(pokemonDetails)
 
     const addToCarrinho = (id) =>{
       const pokemons = pokemonDetails[id-1]
@@ -127,7 +140,7 @@ const GlobalState = (props) => {
                   return "#5C5365"
               case "dragon":
                   return "#0A6CBF"    
-              case "eletric":
+              case "electric":
                   return "#F4D23B"    
               case "fairy":
                   return "#EC8FE6"    
@@ -195,9 +208,9 @@ const GlobalState = (props) => {
     }
 
 
-    const states = { pokeData , pokemonDetails, pokemonCapturado}
+    const states = { nextPageUrl, prevPageUrl, pokeData , pokemonDetails, pokemonCapturado, currentPageUrl}
     const setters = { setPokeData , setPokemonDetails, setPokemonCapturado }
-    const requests = {Named, getPokemonDetails, addToCarrinho, removeToCarrinho , Color , ColorTypesSmall, EscolheTipo}
+    const requests = {gotoNextPage, gotoPrevPage, getPokemonDetails, addToCarrinho, removeToCarrinho , Color , ColorTypesSmall, EscolheTipo}
     
     
     const Provider = GlobalContext.Provider
