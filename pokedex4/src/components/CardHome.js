@@ -25,7 +25,7 @@ import water from "../assets/icons/water.svg"
 export const CardHome = (props) => {
     const pokemon = props.pokemon
     const navigate = useNavigate()
-
+    const detalhes = `https://pokeapi.co/api/v2/pokemon/${pokemon.id}`
     
     const { requests } = useContext(GlobalContext)
     const { addToCarrinho } = requests

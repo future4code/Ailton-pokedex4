@@ -26,6 +26,7 @@ const GlobalState = (props) => {
     const [pokeData, setPokeData] = useState([])
     const [pokemonDetails, setPokemonDetails] = useState([])
     const [pokemonCapturado, setPokemonCapturado] = useState([])
+    const [pagina, setPagina] = useState(1)
     
 
     const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon");
@@ -40,6 +41,7 @@ const GlobalState = (props) => {
             getPokemonDetails(response.data.results)
             setNextPageUrl(response.data.next);
             setPrevPageUrl(response.data.previous);
+            
         })
         .catch((erro) =>{
           console.log(erro.message)
@@ -49,11 +51,16 @@ const GlobalState = (props) => {
 
       const gotoNextPage = () =>{
         setCurrentPageUrl(nextPageUrl)
+        setPagina(pagina+1)
       }
 
       const gotoPrevPage = () =>{
         setCurrentPageUrl(prevPageUrl)
+        setPagina(pagina-1)
       }
+
+      console.log(pagina)
+
     
       const getPokemonDetails = async (pokemons) => {
         const pokemonsArrays = []
@@ -70,10 +77,12 @@ const GlobalState = (props) => {
         setPokemonDetails(pokemonsArrays)
       }
 
-      console.log(pokemonDetails)
+      
+      
 
     const addToCarrinho = (id) =>{
-      const pokemons = pokemonDetails[id-1]
+        const contador = (pagina*20) - 19
+        const pokemons = pokemonDetails[id-contador]
       
       setPokemonCapturado(state =>{
         const pokemonExist = (state.filter(p => pokemons.id == p.id).length > 0);
@@ -88,15 +97,16 @@ const GlobalState = (props) => {
       // const juntaDados = pokemonDetails[id-1]
       // setPokemonCapturado(novoArray => [...novoArray, juntaDados])
     }
+
+
       const removeToCarrinho =(pokemonId) =>{
-        const pokemons = pokemonDetails[pokemonId-1]
         const novaLista = pokemonCapturado.filter((pokemon) =>{
           return pokemonId !== pokemon.id
         })
         
         console.log("NovaLista:", novaLista)
         setPokemonCapturado(novaLista)
-        alert(`${pokemons.name} foi Libertado!`)
+        alert(`Pokemon Libertado!`)
 
       }
     
@@ -208,8 +218,8 @@ const GlobalState = (props) => {
     }
 
 
-    const states = { nextPageUrl, prevPageUrl, pokeData , pokemonDetails, pokemonCapturado, currentPageUrl}
-    const setters = { setPokeData , setPokemonDetails, setPokemonCapturado }
+    const states = { pagina, nextPageUrl, prevPageUrl, pokeData , pokemonDetails, pokemonCapturado, currentPageUrl}
+    const setters = { setPagina, setPokeData , setPokemonDetails, setPokemonCapturado }
     const requests = {gotoNextPage, gotoPrevPage, getPokemonDetails, addToCarrinho, removeToCarrinho , Color , ColorTypesSmall, EscolheTipo}
     
     
