@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Leonardo Simas
 
 
-Link do Surge: shrill-committee.surge.sh
+Link do Surge: brash-planes.surge.sh
 
 O que não funciona: 
 - Apenas o botão de excluir, dentro da página de detalhes não responde.
