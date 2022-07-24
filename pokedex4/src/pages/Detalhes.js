@@ -13,14 +13,15 @@ import axios from "axios"
 
   const navigate = useNavigate()
   const { states, requests, setters } = useContext(GlobalContext)
-  const { pokemonDetails, pokeData, pokemonCapturado } = states
+  const { pagina, pokemonDetails } = states
   const {setPokemonCapturado} = setters
   const { addToCarrinho, removeToCarrinho } = requests
   const [detalhe, setDetalhe] = useState([])
   const [verifica, setVerifica] = useState (false)
    
   const params = useParams()
-  const juntaDados = pokemonDetails[params.id-1]
+  const contador = (pagina*20) - 19
+  const juntaDados = pokemonDetails[params.id-contador]
 
   console.log(juntaDados)
 
