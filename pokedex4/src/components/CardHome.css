@@ -1,0 +1,76 @@
+.Container{
+    display: flex;
+    width: 25em;
+    height: 10em;
+    border-radius: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    /* margin-top: 3em; */
+    text-transform: capitalize;
+    font-family: "Roboto";
+
+
+}
+
+.Status {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.Linha{
+    border-radius: 0.5em;
+    border: 0.1em dashed #FFFFFF;
+    margin: 0.4em 0.4em 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+
+.LinhaMap{
+    display: flex;
+
+}  
+
+.BotaoCardHome{
+    display: flex;
+    margin-top: 1.5em;
+}
+
+.BotaoDetalhes {
+    height: 1.6em;
+    width: 6em;
+    color: #FFFFFF;
+    border-radius: 2em;
+    margin-bottom: 0.6em;
+    text-decoration: underline;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-family: Roboto;
+    font-size: 1em;
+    /* font-weight: bold; */
+}
+.BotaoCapturar {
+    height: 1.6em;
+    width: 6em;
+    border: none;
+    background-color: #FFFFFF;
+    color: #0f0f0f;
+    border-radius: 2em;
+    margin-bottom: 0.6em;
+    cursor:pointer;
+    font-family: Roboto;
+    font-size: 1em;
+    /* font-weight: bold; */
+}
+
+.ImagemBotaoCardHome{
+    margin-left: 2em;
+}

@@ -1,0 +1,65 @@
+/* Cabeçalho  */
+
+.CountainerHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Logo {
+    width: 16em;
+    height: 5em;
+}
+
+.Botao {
+    background-color: #33A4F5;
+    color: white;
+    Width: 12em;
+    Height: 3em;
+    border: none;
+    border-radius: 0.4em;
+}
+
+
+.Botao:hover {
+    cursor: pointer;
+    opacity: 35%;
+}
+
+/* Main  */
+
+.ContainerMain{
+    display: flex;
+    background-color: gray;
+    margin-top: 1em;
+}
+
+.ContainerMain2{
+    display: flex;
+    background-color: gray;
+    flex-wrap: wrap;
+}
+
+.ContainerMain3{
+    display: flex;
+    background-color: gray;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center ;
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+
+.Paginacao{
+    display: flex;
+}
+
+.PaginacaoMargem{
+    margin-right: 1em;
+}
+
+.Paragrafo{
+    color: white;
+    background-color: gray;
+}
+

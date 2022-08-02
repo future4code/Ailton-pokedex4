@@ -1,0 +1,282 @@
+
+/* Sem Media screen --- No fundo crieu opção para responsividade mobile*/
+
+.ContainerCardDetalhes{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    width: 60em;
+    height: 23em;
+    border-radius: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 4em;
+    padding-left: 0.6em;
+    margin-top: 3em;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+    font-family: Roboto;
+
+}
+
+.StatusDetalhe {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-left: 1em;
+    text-transform: capitalize;
+    font-family: Roboto;
+}
+
+.Linha{
+    
+    width: 4em;
+    border-radius: 0.5em;
+    border: 0.1em dashed #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    font-family: Roboto;
+
+}   
+
+.LinhaMap{
+    display: flex;
+}  
+
+.BotaoCardDetalhes{
+    display: flex;
+    margin-top: 1.5em;
+}
+
+.ImagemBotaoCardDetalhes{
+    margin-left: 2em;
+}
+
+.ImagemPixelCardDetalhe{
+    display: flex;
+    border: none;
+    width: 10em;
+    height: 10em;
+    border-radius: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    margin-top: 1em;
+    background-color: white;
+}
+
+.BaseStatusDetalhes{
+    display: flex;
+    border: none;
+    width: 13em;
+    height: 21em;
+    border-radius: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    margin-top: 1em;
+    background-color: white;
+    flex-direction: column;
+    font-family: Roboto;
+}
+
+.ColorBlackDetalhes{
+    color: black;
+    display: flex;
+}
+
+.SubMenuBaseStatus{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.LinhaSubMenuBaseStatus{
+    margin-top: 1em;
+    display: flex;
+  
+}
+
+.MovesDetalhesContainer{
+    display: flex;
+    border: none;
+    width: 11em;
+    height: 15.5em;
+    border-radius: 0.8em;
+    margin-top: 1em;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    background-color: white;
+    flex-direction: column;
+    font-family: Roboto;
+}
+
+.LinhaMoves{
+    margin-top: 1em;
+    display: flex;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0.8em;
+    background-color: gray;
+    padding-left: 0.6em;
+    font-family: Roboto;
+}
+
+.ImagemDetalhes {
+    object-fit: cover;
+}
+
+.ImagemDetalhes1 {
+    object-fit: cover;
+    width: 16em;
+}
+
+/* Tentando inserir responsividade */
+/* Em teste */
+
+@media screen and (max-width:480px) {
+    .ContainerCardDetalhes {
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid black; */
+        width: 30em;
+        height: 160em;
+        border-radius: 0.8em;
+        margin-left: 1em;
+        margin-right: 0.8em;
+        margin-bottom: 4em;
+        padding-left: 0.6em;
+        margin-top: 3em;
+        flex-wrap: wrap;
+        font-family: Roboto;
+    }
+
+    .StatusDetalhe {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+        margin-left: 1em;
+        text-transform: capitalize;
+        font-family: Roboto;
+    }
+    
+    .Linha{
+        border: 1pt solid black;
+        width: 4em;
+        border-radius: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
+        font-family: Roboto;
+    
+    }   
+    
+    .LinhaMap{
+        display: flex;
+    }  
+    
+    .BotaoCardDetalhes{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5em;
+    }
+    
+    .ImagemBotaoCardDetalhes{
+        margin-left: 2em;
+    }
+    
+    .ImagemPixelCardDetalhe{
+        display: flex;
+        flex-direction: column;
+        border: none;
+        width: 10em;
+        height: 80em;
+        border-radius: 0.8em;
+        margin-left: 1em;
+        margin-right: 0.8em;
+        margin-bottom: 0.6em;
+        padding-left: 0.6em;
+        margin-top: 1em;
+        background-color: white;
+    }
+    
+    .BaseStatusDetalhes{
+        display: flex;
+        flex-direction: column;
+        border: none;
+        width: 13em;
+        height: 21em;
+        border-radius: 0.8em;
+        margin-left: 1em;
+        margin-right: 0.8em;
+        margin-bottom: 0.6em;
+        padding-left: 0.6em;
+        margin-top: 1em;
+        background-color: white;
+        flex-direction: column;
+        font-family: Roboto;
+    }
+    
+    .ColorBlackDetalhes{
+        color: black;
+        display: flex;
+    }
+    
+    .SubMenuBaseStatus{
+        color: black;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .LinhaSubMenuBaseStatus{
+        margin-top: 1em;
+        display: flex;
+      
+    }
+    
+    .MovesDetalhesContainer{
+        display: flex;
+        flex-direction: column;
+        border: none;
+        width: 11em;
+        height: 15.5em;
+        border-radius: 0.8em;
+        margin-right: 0.8em;
+        margin-bottom: 0.6em;
+        padding-left: 0.6em;
+        padding-right: 0.6em;
+        background-color: white;
+        flex-direction: column;
+        font-family: Roboto;
+    }
+    
+    .LinhaMoves{
+        margin-top: 1em;
+        display: flex;
+        color: black;
+        border: 1px solid black;
+        border-radius: 0.8em;
+        background-color: gray;
+        padding-left: 0.6em;
+        font-family: Roboto;
+    }
+    
+    .ImagemDetalhes {
+        object-fit: cover;
+    }
+    
+    .ImagemDetalhes1 {
+        object-fit: cover;
+        width: 16em;
+    }
+    
+
+}
+

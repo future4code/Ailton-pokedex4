@@ -1,16 +1,14 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Gustavo Mariotin
+- Leonardo Simas
 
-Link do Surge: www.link.com.br
 
-O que funciona:
-- Item 1
-- Item 2
+Link do Surge: brash-planes.surge.sh
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Apenas o botão de excluir, dentro da página de detalhes não responde.
+A lógica é a mesma e simplesmente não vai. Iremos fazer uma pesquisa maior.
+- Responsividade da página de Detalhes.
+- Depois do uso da paginação, alguns crashes apareceram.
